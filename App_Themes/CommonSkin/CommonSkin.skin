@@ -1,0 +1,44 @@
+﻿
+ <asp:Panel BorderColor="#cccccc" runat="server" BorderStyle="Solid"></asp:Panel>
+ <asp:Panel skinid="pnlInner" BorderWidth="1px"  BorderColor="#cccccc" runat="server" BorderStyle="Solid"></asp:Panel>
+ <asp:Panel skinid="pnlNoSkn" runat="server"></asp:Panel>
+
+ <asp:GridView runat="server" ShowFooter="true"  EmptyDataRowStyle-Font-Names="Arial" EmptyDataRowStyle-Font-Size="14px" 
+
+        ForeColor="#333333"  GridLines="None" Font-Names="Arial" Width="100%" BorderColor="#E8E9EE" BorderStyle="Solid" BorderWidth="2px" CellPadding="4" 
+            CellSpacing="2" >
+         <%-- 
+        <HeaderStyle BackCOlor="#349A43" Height="30px" Font-Size="14px" ForeColor="#FFFFFF" Font-Bold="true" Font-Underline="false"/>
+        <FooterStyle BackCOlor="#349A43" Height="25px" Font-Size="14px" ForeColor="#FFFFFF" Font-Bold="true" Font-Underline="false"/>
+         --%>
+         <FooterStyle  Font-Bold="true" />
+        <RowStyle Font-Size="12px" Height="25px"  BackCOlor="#FFFFFF" />
+	    <SelectedRowStyle BorderWidth="1" Font-Size="14px" BorderStyle="Solid" Font-Bold="true" BackColor="#ECEEF3" ForeColor="#333333"/>
+        <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
+        <EditRowStyle BackColor="#999999" />
+        <AlternatingRowStyle Font-Size="12px" BackCOlor="#ECEEF3" />
+  </asp:GridView>
+  
+
+ 
+  <asp:GridView runat="server" skinid="grdNoFooter" EmptyDataRowStyle-Font-Names="Arial" EmptyDataRowStyle-Font-Size="14px" 
+        ForeColor="#333333"  GridLines="None" Font-Names="Arial" ShowFooter="false" Width="100%" BorderColor="#349A43" BorderStyle="Solid" BorderWidth="2px" CellPadding="4" 
+            CellSpacing="0"  >
+        <HeaderStyle BackCOlor="#349A43" Height="30px" Font-Size="14px" ForeColor="#FFFFFF" Font-Bold="true" Font-Underline="false"/>
+        <RowStyle Font-Size="12px" Height="25px"  BackCOlor="#FFFFFF" />
+	    <SelectedRowStyle BorderWidth="3" Font-Size="14px" BorderStyle="Double" Font-Bold="true" BackColor="#ECF8F2" ForeColor="#333333"/>
+        <PagerStyle BackColor="#284775" ForeColor="White" HorizontalAlign="Center" />
+        <EditRowStyle BackColor="#999999" />
+        <AlternatingRowStyle Font-Size="12px" BackCOlor="#ECEEF3" />
+  </asp:GridView>
+    
+<asp:FileUpload runat="server" Font-Names="Verdana" Font-Size="10px" />
+
+<asp:TreeView runat="server" NodeIndent="15" ShowLines="True">
+   <ParentNodeStyle Font-Bold="False" />
+   <HoverNodeStyle Font-Underline="True" ForeColor="#6666AA" />
+   <SelectedNodeStyle Font-Underline="False" HorizontalPadding="0px" 
+             VerticalPadding="0px" BackColor="#000000" Font-Bold="true" ForeColor="#FFFFFF" />
+   <NodeStyle Font-Names="verdana" Font-Size="10px" ForeColor="Black" 
+              HorizontalPadding="5px" NodeSpacing="5px" VerticalPadding="5px" />                                           
+ </asp:TreeView>        
