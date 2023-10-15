@@ -202,7 +202,7 @@
                 <asp:SqlDataSource ID="SqlDataSource1" runat="server" ConnectionString="<%$ ConnectionStrings:HRMConnectionString %>"
                     SelectCommand="spGetAllEntityByType" SelectCommandType="StoredProcedure" ProviderName="<%$ ConnectionStrings:HRMConnectionString.ProviderName %>">
                     <SelectParameters>
-                        <asp:Parameter DefaultValue="EHRM" Name="TABLE_CATALOG" Type="String" />
+                        <asp:Parameter DefaultValue="MHRM" Name="TABLE_CATALOG" Type="String" />
                         <asp:ControlParameter ControlID="drpObjects" DefaultValue="BASE TABLE" Name="TABLE_TYPE"
                             PropertyName="SelectedValue" Type="String" />
                     </SelectParameters>
@@ -212,7 +212,7 @@
                 &nbsp;<asp:SqlDataSource ID="SqlDataSource2" runat="server" ConnectionString="<%$ ConnectionStrings:HRMConnectionString %>"
                     SelectCommand="spGetColumnNamesByEntity" SelectCommandType="StoredProcedure">
                     <SelectParameters>
-                        <asp:Parameter DefaultValue="EHRM" Name="TABLE_CATALOG" Type="String" />
+                        <asp:Parameter DefaultValue="MHRM" Name="TABLE_CATALOG" Type="String" />
                         <asp:ControlParameter ControlID="ChkEntityNames" DefaultValue="%" Name="TABLE_NAME"
                             PropertyName="SelectedValue" Type="String" />
                     </SelectParameters>
@@ -222,25 +222,26 @@
         </tr>
         <tr>
             <td valign="top" align="left" class="" colspan="4">
-                <div style="max-height: 600px; max-width: 100%; overflow: auto">
-                    <asp:GridView ID="grdQueryResult" runat="server" EmptyDataText="Nothing Found" CssClass="mGrid">
-                    </asp:GridView>
-                </div>
                 &nbsp;
             </td>
         </tr>
         <tr>
+            <td class="" colspan="4">
+                <asp:Panel ID="pnlResult" runat="server" SkinID="pnlInner" Height="250px" Width="1200px"
+                    ScrollBars="Horizontal">
+                    <asp:GridView ID="grdQueryResult" runat="server" EmptyDataText="Nothing Found" CssClass="mGrid">
+                    </asp:GridView>
+                </asp:Panel>
+            </td>
+        </tr>
+        <tr>
             <td class="">
-                &nbsp;
             </td>
             <td class="">
-                &nbsp;
             </td>
             <td>
-                &nbsp;
             </td>
             <td>
-                &nbsp;
             </td>
         </tr>
     </table>
