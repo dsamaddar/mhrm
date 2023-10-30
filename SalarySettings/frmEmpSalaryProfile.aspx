@@ -6,10 +6,26 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="Server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="Server">
+
+    <script type="text/javascript">
+     $(document).ready(function () {
+         $("#drpSelectEmployee").select2({
+            placeholder: "Select an Employee",
+            allowClear: true
+         });
+     });
+    </script>
+
+    <style type="text/css">
+        .custom
+        {
+            width: 50%;
+        }
+    </style>
     <table style="width: 100%;">
         <tr>
-            <td>
-                <asp:Panel ID="pnlEmployeeSelection" runat="server" SkinID="pnlInner">
+            <td align="left" colspan="2" style="width: 70%">
+                <asp:Panel ID="pnlEmployeeSelection" runat="server" SkinID="pnlInner" Width="100%">
                     <table style="width: 100%;">
                         <tr align="left">
                             <td colspan="4">
@@ -34,7 +50,7 @@
                                 Select Emloyee
                             </td>
                             <td>
-                                <asp:DropDownList ID="drpSelectEmployee" runat="server" Width="200px" CssClass="InputTxtBox"
+                                <asp:DropDownList ID="drpSelectEmployee" runat="server" Width="300px" CssClass="custom"
                                     AutoPostBack="True">
                                 </asp:DropDownList>
                             </td>
@@ -49,6 +65,7 @@
                                 </asp:ScriptManager>
                             </td>
                             <td>
+                                <asp:HiddenField ID="hdFldEmpSalaryProfileID" runat="server" />
                             </td>
                             <td>
                             </td>
@@ -56,10 +73,242 @@
                     </table>
                 </asp:Panel>
             </td>
+            <td style="width: 30%" rowspan="5" valign="top">
+                <asp:Panel ID="pnlSummary" runat="server" SkinID="pnlInner" Width="100%">
+                    <table style="width: 100%;">
+                        <tr align="left">
+                            <td colspan="4">
+                                <div class="widget-title">
+                                    Summary</div>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                &nbsp;</td>
+                            <td colspan="2" style="font-weight:bold">
+                                Salary &amp; Allowances</td>
+                            <td>
+                                &nbsp;</td>
+                        </tr>
+                        <tr>
+                            <td>
+                            </td>
+                            <td style="font-weight:bold">
+                                Monthly</td>
+                            <td style="font-weight:bold">
+                                Yearly</td>
+                            <td>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="4">
+                                ------------------------------------------------------------------------</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Basic Salary</td>
+                            <td>
+                                <asp:Label ID="lblBasicSalaryM" runat="server"></asp:Label>
+                            </td>
+                            <td>
+                                <asp:Label ID="lblBasicSalaryY" runat="server"></asp:Label>
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                House Rent</td>
+                            <td>
+                                <asp:Label ID="lblHouseRentM" runat="server"></asp:Label>
+                            </td>
+                            <td>
+                                <asp:Label ID="lblHouseRentY" runat="server"></asp:Label>
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Medical Allowance</td>
+                            <td>
+                                <asp:Label ID="lblMedicalAllowanceM" runat="server"></asp:Label>
+                            </td>
+                            <td>
+                                <asp:Label ID="lblMedicalAllowanceY" runat="server"></asp:Label>
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Festival Bonus (MP)</td>
+                            <td>
+                                <asp:Label ID="lblFestivalBonusMPM" runat="server"></asp:Label>
+                            </td>
+                            <td>
+                                <asp:Label ID="lblFestivalBonusMPY" runat="server"></asp:Label>
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                LFA</td>
+                            <td>
+                                <asp:Label ID="lblLFAM" runat="server"></asp:Label>
+                            </td>
+                            <td>
+                                <asp:Label ID="lblLFAY" runat="server"></asp:Label>
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight:bold">
+                                Total Gross Salary (a)</td>
+                            <td style="font-weight:bold">
+                                <asp:Label ID="lblTotalGrossSalaryAM" runat="server"></asp:Label>
+                            </td>
+                            <td style="font-weight:bold">
+                                <asp:Label ID="lblTotalGrossSalaryAY" runat="server"></asp:Label>
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="4">
+                                ------------------------------------------------------------------------</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Other Benefits</td>
+                            <td>
+                                &nbsp;</td>
+                            <td>
+                                &nbsp;</td>
+                            <td>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Mobile Phone Usage Bill</td>
+                            <td>
+                                <asp:Label ID="lblMobileBIllM" runat="server"></asp:Label>
+                            </td>
+                            <td>
+                                <asp:Label ID="lblMobileBIllY" runat="server"></asp:Label>
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Festival Bonus</td>
+                            <td>
+                                <asp:Label ID="lblFestivalBonusM" runat="server"></asp:Label>
+                            </td>
+                            <td>
+                                <asp:Label ID="lblFestivalBonusY" runat="server"></asp:Label>
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight:bold">
+                                Total Benefits (b)</td>
+                            <td style="font-weight:bold">
+                                <asp:Label ID="lblTotalBenefitBM" runat="server"></asp:Label>
+                            </td>
+                            <td style="font-weight:bold">
+                                <asp:Label ID="lblTotalBenefitBY" runat="server"></asp:Label>
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="4">
+                                ------------------------------------------------------------------------</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Retirement Benefits</td>
+                            <td>
+                                &nbsp;</td>
+                            <td>
+                                &nbsp;</td>
+                            <td>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Provident Fund</td>
+                            <td>
+                                <asp:Label ID="lblProvidentFundM" runat="server"></asp:Label>
+                            </td>
+                            <td>
+                                <asp:Label ID="lblProvidentFundY" runat="server"></asp:Label>
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Gratuity</td>
+                            <td>
+                                <asp:Label ID="lblGratuityM" runat="server"></asp:Label>
+                            </td>
+                            <td>
+                                <asp:Label ID="lblGratuityY" runat="server"></asp:Label>
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight:bold">
+                                Total Confirmed Benefits (c)</td>
+                            <td style="font-weight:bold">
+                                <asp:Label ID="lblTCBM" runat="server"></asp:Label>
+                            </td>
+                            <td style="font-weight:bold">
+                                <asp:Label ID="lblTCBY" runat="server"></asp:Label>
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="4">
+                                ------------------------------------------------------------------------</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight:bold">
+                                CTC (a+b+c)</td>
+                            <td style="font-weight:bold">
+                                <asp:Label ID="lblCTCM" runat="server"></asp:Label>
+                            </td>
+                            <td style="font-weight:bold">
+                                <asp:Label ID="lblCTCY" runat="server"></asp:Label>
+                            </td>
+                            <td>
+                                </td>
+                        </tr>
+                        <tr>
+                            <td>
+                            </td>
+                            <td>
+                            </td>
+                            <td>
+                            </td>
+                            <td>
+                                &nbsp;</td>
+                        </tr>
+                    </table>
+                </asp:Panel>
+            </td>
         </tr>
         <tr>
-            <td>
-                <asp:Panel ID="pnlEmpProfile" runat="server" SkinID="pnlInner">
+            <td align="left" style="width: 60%">
+                <asp:Panel ID="pnlEmpProfile" runat="server" SkinID="pnlInner" Width="100%">
                     <table style="width: 100%;">
                         <tr align="left">
                             <td colspan="7">
@@ -72,7 +321,6 @@
                             <td style="width: 14.285%">
                             </td>
                             <td style="width: 14.285%">
-                                <asp:HiddenField ID="hdFldEmpSalaryProfileID" runat="server" />
                             </td>
                             <td style="width: 14.285%">
                             </td>
@@ -86,13 +334,33 @@
                             </td>
                         </tr>
                         <tr align="left">
+                            <td style="width: 14.285%">
+                            </td>
+                            <td style="width: 14.285%">
+                                Gross Salary</td>
+                            <td style="width: 14.285%">
+                                <asp:TextBox ID="txtGrossSalary" runat="server" Width="100px" 
+                                    AutoPostBack="True">0</asp:TextBox>
+                            </td>
+                            <td style="width: 14.285%">
+                            </td>
+                            <td style="width: 14.285%">
+                                &nbsp;</td>
+                            <td style="width: 14.285%">
+                                <asp:Label ID="lblEmpType" runat="server" ForeColor="#006600" Font-Bold="True"></asp:Label>
+                            </td>
+                            <td style="width: 14.285%">
+                            </td>
+                        </tr>
+                        <tr align="left">
                             <td>
                             </td>
                             <td>
                                 Basic Salary
+                                <asp:Label ID="lblBSPer" runat="server" ForeColor="#006600"></asp:Label>
                             </td>
                             <td>
-                                <asp:TextBox ID="txtBasicSalary" runat="server">0</asp:TextBox>
+                                <asp:TextBox ID="txtBasicSalary" runat="server" Width="100px">0</asp:TextBox>
                             </td>
                             <td>
                                 <asp:RequiredFieldValidator ID="reqFldBasicSalary" runat="server" ControlToValidate="txtBasicSalary"
@@ -105,9 +373,10 @@
                             </td>
                             <td>
                                 House Rent
+                                <asp:Label ID="lblHRPer" runat="server" ForeColor="#006600"></asp:Label>
                             </td>
                             <td>
-                                <asp:TextBox ID="txtHouseRent" runat="server">0</asp:TextBox>
+                                <asp:TextBox ID="txtHouseRent" runat="server" Width="100px">0</asp:TextBox>
                             </td>
                             <td>
                                 <asp:RequiredFieldValidator ID="reqFldHouseRent" runat="server" ControlToValidate="txtHouseRent"
@@ -126,22 +395,23 @@
                                 Entertainment
                             </td>
                             <td>
-                                <asp:TextBox ID="txtEntertainment" runat="server">0</asp:TextBox>
+                                <asp:TextBox ID="txtEntertainment" runat="server" Width="100px">0</asp:TextBox>
                             </td>
                             <td>
                                 <asp:RequiredFieldValidator ID="reqFldEntertainment" runat="server" ControlToValidate="txtEntertainment"
                                     ErrorMessage="Required: Entertainment" ValidationGroup="Update" Display="None">
                                 </asp:RequiredFieldValidator>
-                                <cc1:ValidatorCalloutExtender ID="reqFldEntertainment_ValidatorCalloutExtender"
-                                    runat="server" Enabled="True" TargetControlID="reqFldEntertainment" CssClass="customCalloutStyle"
+                                <cc1:ValidatorCalloutExtender ID="reqFldEntertainment_ValidatorCalloutExtender" runat="server"
+                                    Enabled="True" TargetControlID="reqFldEntertainment" CssClass="customCalloutStyle"
                                     CloseImageUrl="~/Sources/images/valClose.png" WarningIconImageUrl="~/Sources/images/Valwarning.png">
                                 </cc1:ValidatorCalloutExtender>
                             </td>
                             <td>
                                 Medical
+                                <asp:Label ID="lblMedPer" runat="server" ForeColor="#006600"></asp:Label>
                             </td>
                             <td>
-                                <asp:TextBox ID="txtMedical" runat="server">0</asp:TextBox>
+                                <asp:TextBox ID="txtMedical" runat="server" Width="100px">0</asp:TextBox>
                             </td>
                             <td>
                                 <asp:RequiredFieldValidator ID="reqFldMedical" runat="server" ControlToValidate="txtMedical"
@@ -158,9 +428,10 @@
                             </td>
                             <td>
                                 Conveyence
-                            </td>
+                                <asp:Label ID="lblConvPer" runat="server" ForeColor="#006600"></asp:Label>
+                                &nbsp;</td>
                             <td>
-                                <asp:TextBox ID="txtConveyance" runat="server">0</asp:TextBox>
+                                <asp:TextBox ID="txtConveyance" runat="server" Width="100px">0</asp:TextBox>
                             </td>
                             <td>
                                 <asp:RequiredFieldValidator ID="reqFldConveyance" runat="server" ControlToValidate="txtConveyance"
@@ -175,7 +446,7 @@
                                 House Maintenance
                             </td>
                             <td>
-                                <asp:TextBox ID="txtHouseMaintenance" runat="server">0</asp:TextBox>
+                                <asp:TextBox ID="txtHouseMaintenance" runat="server" Width="100px">0</asp:TextBox>
                             </td>
                             <td>
                                 <asp:RequiredFieldValidator ID="reqFldHouseMaintenance" runat="server" ControlToValidate="txtHouseMaintenance"
@@ -194,7 +465,7 @@
                                 Consolidated
                             </td>
                             <td>
-                                <asp:TextBox ID="txtConsolidated" runat="server">0</asp:TextBox>
+                                <asp:TextBox ID="txtConsolidated" runat="server" Width="100px">0</asp:TextBox>
                             </td>
                             <td>
                                 <asp:RequiredFieldValidator ID="reqFldConsolidated" runat="server" ControlToValidate="txtConsolidated"
@@ -207,9 +478,10 @@
                             </td>
                             <td>
                                 LFA
+                                <asp:Label ID="lblLFAPer" runat="server" ForeColor="#006600"></asp:Label>
                             </td>
                             <td>
-                                <asp:TextBox ID="txtLFA" runat="server">0</asp:TextBox>
+                                <asp:TextBox ID="txtLFA" runat="server" Width="100px">0</asp:TextBox>
                             </td>
                             <td>
                                 <asp:RequiredFieldValidator ID="reqFldLFA" runat="server" ControlToValidate="txtLFA"
@@ -228,7 +500,7 @@
                                 Special Allowance
                             </td>
                             <td>
-                                <asp:TextBox ID="txtSpecialAllowance" runat="server">0</asp:TextBox>
+                                <asp:TextBox ID="txtSpecialAllowance" runat="server" Width="100px">0</asp:TextBox>
                             </td>
                             <td>
                                 <asp:RequiredFieldValidator ID="reqFldSpecialAllowance" runat="server" ControlToValidate="txtSpecialAllowance"
@@ -243,7 +515,7 @@
                                 Mobile Allowance
                             </td>
                             <td>
-                                <asp:TextBox ID="txtMobileAllowance" runat="server">0</asp:TextBox>
+                                <asp:TextBox ID="txtMobileAllowance" runat="server" Width="100px">0</asp:TextBox>
                             </td>
                             <td>
                                 <asp:RequiredFieldValidator ID="reqFldMobileAllowance" runat="server" ControlToValidate="txtMobileAllowance"
@@ -262,7 +534,7 @@
                                 Professional Allowance
                             </td>
                             <td>
-                                <asp:TextBox ID="txtProfessionalAllowance" runat="server">0</asp:TextBox>
+                                <asp:TextBox ID="txtProfessionalAllowance" runat="server" Width="100px">0</asp:TextBox>
                             </td>
                             <td>
                                 <asp:RequiredFieldValidator ID="reqFldProfessionalAllowance" runat="server" ControlToValidate="txtProfessionalAllowance"
@@ -274,20 +546,18 @@
                                 </cc1:ValidatorCalloutExtender>
                             </td>
                             <td>
-                                Car Allowance</td>
-                            <td>
-                                <asp:TextBox ID="txtCarAllowance" runat="server">0</asp:TextBox>
+                                Car Allowance
                             </td>
                             <td>
-                                <asp:RequiredFieldValidator ID="reqFldtxtCarAllowance" runat="server" 
-                                    ControlToValidate="txtCarAllowance" Display="None" 
-                                    ErrorMessage="Required: Car Allowance" ValidationGroup="Update">
+                                <asp:TextBox ID="txtCarAllowance" runat="server" Width="100px">0</asp:TextBox>
+                            </td>
+                            <td>
+                                <asp:RequiredFieldValidator ID="reqFldtxtCarAllowance" runat="server" ControlToValidate="txtCarAllowance"
+                                    Display="None" ErrorMessage="Required: Car Allowance" ValidationGroup="Update">
                                 </asp:RequiredFieldValidator>
-                                <cc1:ValidatorCalloutExtender ID="reqFldtxtCarAllowance_ValidatorCalloutExtender" 
-                                    runat="server" CloseImageUrl="~/Sources/images/valClose.png" 
-                                    CssClass="customCalloutStyle" Enabled="True" 
-                                    TargetControlID="reqFldtxtCarAllowance" 
-                                    WarningIconImageUrl="~/Sources/images/Valwarning.png">
+                                <cc1:ValidatorCalloutExtender ID="reqFldtxtCarAllowance_ValidatorCalloutExtender"
+                                    runat="server" CloseImageUrl="~/Sources/images/valClose.png" CssClass="customCalloutStyle"
+                                    Enabled="True" TargetControlID="reqFldtxtCarAllowance" WarningIconImageUrl="~/Sources/images/Valwarning.png">
                                 </cc1:ValidatorCalloutExtender>
                             </td>
                         </tr>
@@ -295,9 +565,10 @@
                             <td>
                             </td>
                             <td>
-                                Cash</td>
+                                Cash
+                            </td>
                             <td>
-                                <asp:TextBox ID="txtCash" runat="server">0</asp:TextBox>
+                                <asp:TextBox ID="txtCash" runat="server" Width="100px">0</asp:TextBox>
                             </td>
                             <td>
                             </td>
@@ -305,17 +576,15 @@
                                 Arrear
                             </td>
                             <td>
-                                <asp:TextBox ID="txtArrear" runat="server">0</asp:TextBox>
+                                <asp:TextBox ID="txtArrear" runat="server" Width="100px">0</asp:TextBox>
                             </td>
                             <td>
-                                <asp:RequiredFieldValidator ID="reqFldArrear" runat="server" 
-                                    ControlToValidate="txtArrear" Display="None" ErrorMessage="Required: Arrear" 
-                                    ValidationGroup="Update">
+                                <asp:RequiredFieldValidator ID="reqFldArrear" runat="server" ControlToValidate="txtArrear"
+                                    Display="None" ErrorMessage="Required: Arrear" ValidationGroup="Update">
                                 </asp:RequiredFieldValidator>
-                                <cc1:ValidatorCalloutExtender ID="reqFldArrear_ValidatorCalloutExtender" 
-                                    runat="server" CloseImageUrl="~/Sources/images/valClose.png" 
-                                    CssClass="customCalloutStyle" Enabled="True" TargetControlID="reqFldArrear" 
-                                    WarningIconImageUrl="~/Sources/images/Valwarning.png">
+                                <cc1:ValidatorCalloutExtender ID="reqFldArrear_ValidatorCalloutExtender" runat="server"
+                                    CloseImageUrl="~/Sources/images/valClose.png" CssClass="customCalloutStyle" Enabled="True"
+                                    TargetControlID="reqFldArrear" WarningIconImageUrl="~/Sources/images/Valwarning.png">
                                 </cc1:ValidatorCalloutExtender>
                             </td>
                         </tr>
@@ -328,8 +597,8 @@
             </td>
         </tr>
         <tr>
-            <td>
-                <asp:Panel ID="pnlBonus" runat="server" SkinID="pnlInner">
+            <td align="left" style="width: 60%">
+                <asp:Panel ID="pnlBonus" runat="server" SkinID="pnlInner" Width="100%">
                     <table style="width: 100%;">
                         <tr align="left">
                             <td colspan="7">
@@ -358,9 +627,10 @@
                             <td>
                             </td>
                             <td>
-                                Festival Bonus</td>
+                                Festival Bonus
+                            </td>
                             <td>
-                                <asp:TextBox ID="txtFestivalBonus" runat="server">0</asp:TextBox>
+                                <asp:TextBox ID="txtFestivalBonus" runat="server" Width="100px">0</asp:TextBox>
                             </td>
                             <td>
                                 <asp:RequiredFieldValidator ID="reqFldFestivalBonus" runat="server" ControlToValidate="txtFestivalBonus"
@@ -375,7 +645,7 @@
                                 Performance Bonus
                             </td>
                             <td>
-                                <asp:TextBox ID="txtPerformanceBonus" runat="server">0</asp:TextBox>
+                                <asp:TextBox ID="txtPerformanceBonus" runat="server" Width="100px">0</asp:TextBox>
                             </td>
                             <td>
                                 <asp:RequiredFieldValidator ID="reqFldPerformanceBonus" runat="server" ControlToValidate="txtPerformanceBonus"
@@ -391,9 +661,10 @@
                             <td>
                             </td>
                             <td>
-                                Baishakhi Bonus</td>
+                                Baishakhi Bonus
+                            </td>
                             <td>
-                                <asp:TextBox ID="txtBaishakhiBonus" runat="server">0</asp:TextBox>
+                                <asp:TextBox ID="txtBaishakhiBonus" runat="server" Width="100px">0</asp:TextBox>
                             </td>
                             <td>
                                 <asp:RequiredFieldValidator ID="reqFldBaishakhiBonus" runat="server" ControlToValidate="txtBaishakhiBonus"
@@ -432,8 +703,8 @@
             </td>
         </tr>
         <tr>
-            <td>
-                <asp:Panel ID="pnlDeduction" runat="server" SkinID="pnlInner">
+            <td align="left" style="width: 60%">
+                <asp:Panel ID="pnlDeduction" runat="server" SkinID="pnlInner" Width="100%">
                     <table style="width: 100%;">
                         <tr align="left">
                             <td colspan="7">
@@ -463,9 +734,10 @@
                             </td>
                             <td>
                                 PF Deduction
+                                <asp:Label ID="lblPFPer" runat="server" ForeColor="#006600"></asp:Label>
                             </td>
                             <td>
-                                <asp:TextBox ID="txtPFDeduction" runat="server">0</asp:TextBox>
+                                <asp:TextBox ID="txtPFDeduction" runat="server" Width="100px">0</asp:TextBox>
                             </td>
                             <td>
                                 <asp:RequiredFieldValidator ID="reqFldPFDeduction" runat="server" ControlToValidate="txtPFDeduction"
@@ -480,7 +752,7 @@
                                 Accounts Recoverable
                             </td>
                             <td>
-                                <asp:TextBox ID="txtAccountsRecoverable" runat="server">0</asp:TextBox>
+                                <asp:TextBox ID="txtAccountsRecoverable" runat="server" Width="100px">0</asp:TextBox>
                             </td>
                             <td>
                                 <asp:RequiredFieldValidator ID="reqFldAccountsRecoverable" runat="server" ControlToValidate="txtAccountsRecoverable"
@@ -499,7 +771,7 @@
                                 Tax Deduction
                             </td>
                             <td>
-                                <asp:TextBox ID="txtTaxDeduction" runat="server">0</asp:TextBox>
+                                <asp:TextBox ID="txtTaxDeduction" runat="server" Width="100px">0</asp:TextBox>
                             </td>
                             <td>
                                 <asp:RequiredFieldValidator ID="reqFldTaxDeduction" runat="server" ControlToValidate="txtTaxDeduction"
@@ -514,7 +786,7 @@
                                 PB Tax Deduction
                             </td>
                             <td>
-                                <asp:TextBox ID="txtPBTaxDeduction" runat="server">0</asp:TextBox>
+                                <asp:TextBox ID="txtPBTaxDeduction" runat="server" Width="100px">0</asp:TextBox>
                             </td>
                             <td>
                                 <asp:RequiredFieldValidator ID="reqFldPBTaxDeduction" runat="server" ControlToValidate="txtPBTaxDeduction"
@@ -530,9 +802,10 @@
                             <td>
                             </td>
                             <td>
-                                Conveyence Deduction</td>
+                                Conveyence Deduction
+                            </td>
                             <td>
-                                <asp:TextBox ID="txtConveyenceDeduction" runat="server">0</asp:TextBox>
+                                <asp:TextBox ID="txtConveyenceDeduction" runat="server" Width="100px">0</asp:TextBox>
                             </td>
                             <td>
                                 <asp:RequiredFieldValidator ID="reqFldConveyenceDeductionPer" runat="server" ControlToValidate="txtConveyenceDeduction"
@@ -547,7 +820,7 @@
                                 Loan Deduction
                             </td>
                             <td>
-                                <asp:TextBox ID="txtLoanDeduction" runat="server">0</asp:TextBox>
+                                <asp:TextBox ID="txtLoanDeduction" runat="server" Width="100px">0</asp:TextBox>
                             </td>
                             <td>
                                 <asp:RequiredFieldValidator ID="reqFldLoanDeduction" runat="server" ControlToValidate="txtLoanDeduction"
@@ -566,7 +839,7 @@
                                 Donation Deduction
                             </td>
                             <td>
-                                <asp:TextBox ID="txtDonationDeduction" runat="server">0</asp:TextBox>
+                                <asp:TextBox ID="txtDonationDeduction" runat="server" Width="100px">0</asp:TextBox>
                             </td>
                             <td>
                                 <asp:RequiredFieldValidator ID="reqFldDonationDeduction" runat="server" ControlToValidate="txtDonationDeduction"
@@ -605,8 +878,8 @@
             </td>
         </tr>
         <tr>
-            <td>
-                <asp:Panel ID="pnlSubmission" runat="server" SkinID="pnlInner">
+            <td align="left" style="width: 60%">
+                <asp:Panel ID="pnlSubmission" runat="server" SkinID="pnlInner" Width="100%">
                     <table style="width: 100%;">
                         <tr>
                             <td style="width: 33.33%">

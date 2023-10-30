@@ -7,6 +7,14 @@ Partial Class SalarySettings_frmProcessSalary
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         If Not IsPostBack Then
+
+            Dim MenuIDs As String
+            MenuIDs = Session("PermittedMenus")
+
+            If InStr(MenuIDs, "ProcessSalary~") = 0 Then
+                Response.Redirect("~\frmHRMLogin.aspx")
+            End If
+
             ShowEmployeeType()
             GetEmpList(drpEmployeeType.SelectedValue)
             Intialization()
@@ -17,6 +25,7 @@ Partial Class SalarySettings_frmProcessSalary
         lblProcessingEntryPoint.Text = Now.Year.ToString() & Now.Day.ToString() & Now.Month.ToString() & Now.Hour.ToString() & Now.Minute.ToString() ' & Now.Ticks.ToString()
         drpSalaryMonth.SelectedValue = Now.Month.ToString()
         drpSalaryYear.SelectedValue = Now.Year.ToString()
+        lblSelectEmpType.Text = "Select Employee Type"
         btnProcessSalary.Enabled = False
     End Sub
 
@@ -205,6 +214,7 @@ Partial Class SalarySettings_frmProcessSalary
     Protected Sub drpEmployeeType_SelectedIndexChanged(ByVal sender As Object, ByVal e As System.EventArgs) Handles drpEmployeeType.SelectedIndexChanged
         Try
             GetEmpList(drpEmployeeType.SelectedValue)
+            lblSelectEmpType.Text = "Total " & drpEmployeeType.SelectedItem.Text & " Employees = " & chkBxLstEmployees.Items.Count.ToString
             chkSelectAllEmployee.Checked = False
         Catch ex As Exception
             MessageBox(ex.Message)

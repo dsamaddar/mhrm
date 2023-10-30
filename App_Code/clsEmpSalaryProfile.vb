@@ -35,9 +35,18 @@ Public Class clsEmpSalaryProfile
         End Set
     End Property
 
-    Dim _BasicSalary, _HouseRent, _Entertainment, _Medical, _Conveyance, _HouseMaintenance, _Consolidated, _
+    Dim _GrossSalary, _BasicSalary, _HouseRent, _Entertainment, _Medical, _Conveyance, _HouseMaintenance, _Consolidated, _
     _LFA, _PerformanceBonus, _FestivalBonus, _BaishakhiAllowance, _ProfessionalAllowance, _SpecialAllowance, _MobileAllowance, _CarAllowance, _
     _Arrear, _Cash, _AccountsRecoverable, _PFDeduction, _PBTaxDeduction, _TaxDeduction, _ConveyanceDeduction, _LoanDeduction, _DonationDeduction As Double
+
+    Public Property GrossSalary() As Double
+        Get
+            Return _GrossSalary
+        End Get
+        Set(ByVal value As Double)
+            _GrossSalary = value
+        End Set
+    End Property
 
     Public Property BasicSalary() As Double
         Get
@@ -356,6 +365,7 @@ Public Class clsEmpSalaryProfile
                 dr = cmd.ExecuteReader()
                 While dr.Read()
                     EmpSalaryProfile.EmpSalaryProfileID = dr.Item("EmpSalaryProfileID")
+                    EmpSalaryProfile.GrossSalary = dr.Item("GrossSalary")
                     EmpSalaryProfile.BasicSalary = dr.Item("BasicSalary")
                     EmpSalaryProfile.HouseRent = dr.Item("HouseRent")
                     EmpSalaryProfile.Entertainment = dr.Item("Entertainment")
@@ -442,6 +452,7 @@ Public Class clsEmpSalaryProfile
             con.Open()
             cmd.CommandType = CommandType.StoredProcedure
             cmd.Parameters.AddWithValue("@EmployeeID", EmpSalaryProfile.EmployeeID)
+            cmd.Parameters.AddWithValue("@GrossSalary", EmpSalaryProfile.GrossSalary)
             cmd.Parameters.AddWithValue("@BasicSalary", EmpSalaryProfile.BasicSalary)
             cmd.Parameters.AddWithValue("@HouseRent", EmpSalaryProfile.HouseRent)
             cmd.Parameters.AddWithValue("@Entertainment", EmpSalaryProfile.Entertainment)
@@ -494,6 +505,7 @@ Public Class clsEmpSalaryProfile
 
             cmd.Parameters.AddWithValue("@EmpSalaryProfileID", EmpSalaryProfile.EmpSalaryProfileID)
             cmd.Parameters.AddWithValue("@EmployeeID", EmpSalaryProfile.EmployeeID)
+            cmd.Parameters.AddWithValue("@GrossSalary", EmpSalaryProfile.GrossSalary)
             cmd.Parameters.AddWithValue("@BasicSalary", EmpSalaryProfile.BasicSalary)
             cmd.Parameters.AddWithValue("@HouseRent", EmpSalaryProfile.HouseRent)
             cmd.Parameters.AddWithValue("@Entertainment", EmpSalaryProfile.Entertainment)

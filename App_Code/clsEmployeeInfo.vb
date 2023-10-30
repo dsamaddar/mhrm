@@ -894,7 +894,7 @@ Public Class clsEmployeeInfo
         End Set
     End Property
 
-    Dim _Department, _EmpType, _ServiceLength, _Branch As String
+    Dim _Department, _EmpType, _EmpTypeNm, _ServiceLength, _Branch As String
 
     Public Property Department() As String
         Get
@@ -911,6 +911,15 @@ Public Class clsEmployeeInfo
         End Get
         Set(ByVal value As String)
             _EmpType = value
+        End Set
+    End Property
+
+    Public Property EmpTypeNm() As String
+        Get
+            Return _EmpTypeNm
+        End Get
+        Set(ByVal value As String)
+            _EmpTypeNm = value
         End Set
     End Property
 
@@ -1216,6 +1225,35 @@ Public Class clsEmployeeInfo
 
                 Return ds
             End Using
+        Catch ex As Exception
+            If con.State = ConnectionState.Open Then
+                con.Close()
+            End If
+            Return Nothing
+        End Try
+    End Function
+
+#End Region
+
+#Region " Get Employee Type By EmpID "
+
+    Public Function fnGetEmployeeTypeByEmpID(ByVal EmployeeID As String) As String
+
+        Dim sp As String = "spGetEmployeeTypeByEmpID"
+        Dim dr As SqlDataReader
+        Dim EmpTypeNm As String = ""
+        Try
+            con.Open()
+            Using cmd As SqlCommand = New SqlCommand(sp, con)
+                cmd.CommandType = CommandType.StoredProcedure
+                cmd.Parameters.AddWithValue("@EmployeeID", EmployeeID)
+                dr = cmd.ExecuteReader()
+                While dr.Read()
+                    EmpTypeNm = dr.Item("EmpTypeNm")
+                End While
+            End Using
+            con.Close()
+            Return EmpTypeNm
         Catch ex As Exception
             If con.State = ConnectionState.Open Then
                 con.Close()
