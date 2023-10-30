@@ -24,7 +24,7 @@
     </style>
     <table style="width: 100%;">
         <tr>
-            <td align="left" colspan="2" style="width: 70%">
+            <td align="left" colspan="2" style="width: 60%">
                 <asp:Panel ID="pnlEmployeeSelection" runat="server" SkinID="pnlInner" Width="100%">
                     <table style="width: 100%;">
                         <tr align="left">
@@ -84,29 +84,35 @@
                         </tr>
                         <tr>
                             <td>
-                                &nbsp;</td>
-                            <td colspan="2" style="font-weight:bold">
-                                Salary &amp; Allowances</td>
+                                &nbsp;
+                            </td>
+                            <td colspan="2" style="font-weight: bold">
+                                Salary &amp; Allowances
+                            </td>
                             <td>
-                                &nbsp;</td>
+                                &nbsp;
+                            </td>
                         </tr>
                         <tr>
                             <td>
                             </td>
-                            <td style="font-weight:bold">
-                                Monthly</td>
-                            <td style="font-weight:bold">
-                                Yearly</td>
+                            <td style="font-weight: bold">
+                                Monthly
+                            </td>
+                            <td style="font-weight: bold">
+                                Yearly
+                            </td>
                             <td>
                             </td>
                         </tr>
                         <tr>
                             <td colspan="4">
-                                ------------------------------------------------------------------------</td>
+                                -------------------------------------------------------------------------------</td>
                         </tr>
                         <tr>
                             <td>
-                                Basic Salary</td>
+                                Basic Salary
+                            </td>
                             <td>
                                 <asp:Label ID="lblBasicSalaryM" runat="server"></asp:Label>
                             </td>
@@ -118,7 +124,8 @@
                         </tr>
                         <tr>
                             <td>
-                                House Rent</td>
+                                House Rent
+                            </td>
                             <td>
                                 <asp:Label ID="lblHouseRentM" runat="server"></asp:Label>
                             </td>
@@ -130,7 +137,8 @@
                         </tr>
                         <tr>
                             <td>
-                                Medical Allowance</td>
+                                Medical Allowance
+                            </td>
                             <td>
                                 <asp:Label ID="lblMedicalAllowanceM" runat="server"></asp:Label>
                             </td>
@@ -142,19 +150,21 @@
                         </tr>
                         <tr>
                             <td>
-                                Festival Bonus (MP)</td>
-                            <td>
-                                <asp:Label ID="lblFestivalBonusMPM" runat="server"></asp:Label>
+                                Conveyance
                             </td>
                             <td>
-                                <asp:Label ID="lblFestivalBonusMPY" runat="server"></asp:Label>
+                                <asp:Label ID="lblConveyanceM" runat="server"></asp:Label>
+                            </td>
+                            <td>
+                                <asp:Label ID="lblConveyanceY" runat="server"></asp:Label>
                             </td>
                             <td>
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                LFA</td>
+                                LFA
+                            </td>
                             <td>
                                 <asp:Label ID="lblLFAM" runat="server"></asp:Label>
                             </td>
@@ -165,34 +175,127 @@
                             </td>
                         </tr>
                         <tr>
-                            <td style="font-weight:bold">
-                                Total Gross Salary (a)</td>
-                            <td style="font-weight:bold">
-                                <asp:Label ID="lblTotalGrossSalaryAM" runat="server"></asp:Label>
+                            <td style="font-weight: bold; color: Green">
+                                Total Gross Salary (a)
                             </td>
-                            <td style="font-weight:bold">
-                                <asp:Label ID="lblTotalGrossSalaryAY" runat="server"></asp:Label>
+                            <td style="font-weight: bold">
+                                <asp:Label ID="lblTotalGrossSalaryAM" runat="server" ForeColor="#006600"></asp:Label>
+                            </td>
+                            <td style="font-weight: bold">
+                                <asp:Label ID="lblTotalGrossSalaryAY" runat="server" ForeColor="#006600"></asp:Label>
                             </td>
                             <td>
                             </td>
                         </tr>
                         <tr>
                             <td colspan="4">
-                                ------------------------------------------------------------------------</td>
+                                -------------------------------------------------------------------------------</td>
                         </tr>
                         <tr>
                             <td>
-                                Other Benefits</td>
+                                Deduction
+                            </td>
                             <td>
-                                &nbsp;</td>
+                                &nbsp;
+                            </td>
                             <td>
-                                &nbsp;</td>
+                                &nbsp;
+                            </td>
+                            <td>
+                                &nbsp;
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Provident Fund
+                            </td>
+                            <td>
+                                <asp:Label ID="lblPFDedM" runat="server"></asp:Label>
+                            </td>
+                            <td>
+                                <asp:Label ID="lblPFDedY" runat="server"></asp:Label>
+                            </td>
                             <td>
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                Mobile Phone Usage Bill</td>
+                                Tax
+                            </td>
+                            <td>
+                                <asp:Label ID="lblTaxDedM" runat="server"></asp:Label>
+                            </td>
+                            <td>
+                                <asp:Label ID="lblTaxDedY" runat="server"></asp:Label>
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Loan
+                            </td>
+                            <td>
+                                <asp:Label ID="lblLoanDedM" runat="server"></asp:Label>
+                            </td>
+                            <td>
+                                <asp:Label ID="lblLoanDedY" runat="server"></asp:Label>
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: bold; color: Red">
+                                Total Deduction (d)
+                            </td>
+                            <td style="font-weight: bold">
+                                <asp:Label ID="lblTDedDM" runat="server" ForeColor="#CC3300"></asp:Label>
+                            </td>
+                            <td style="font-weight: bold">
+                                <asp:Label ID="lblTDedDY" runat="server" ForeColor="#CC3300"></asp:Label>
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="4">
+                                -------------------------------------------------------------------------------</td>
+                        </tr>
+                        <tr>
+                            <td style="font-weight: bold; color: Blue">
+                                Net Salary (a-d)
+                            </td>
+                            <td style="font-weight: bold">
+                                <asp:Label ID="lblNetSalaryM" runat="server" ForeColor="#003399"></asp:Label>
+                            </td>
+                            <td style="font-weight: bold">
+                                <asp:Label ID="lblNetSalaryY" runat="server" ForeColor="#003399"></asp:Label>
+                            </td>
+                            <td>
+                                &nbsp;
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="4">
+                                -------------------------------------------------------------------------------</td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Other Benefits
+                            </td>
+                            <td>
+                                &nbsp;
+                            </td>
+                            <td>
+                                &nbsp;
+                            </td>
+                            <td>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                Mobile Phone Usage Bill
+                            </td>
                             <td>
                                 <asp:Label ID="lblMobileBIllM" runat="server"></asp:Label>
                             </td>
@@ -204,7 +307,8 @@
                         </tr>
                         <tr>
                             <td>
-                                Festival Bonus</td>
+                                Festival Bonus
+                            </td>
                             <td>
                                 <asp:Label ID="lblFestivalBonusM" runat="server"></asp:Label>
                             </td>
@@ -215,12 +319,13 @@
                             </td>
                         </tr>
                         <tr>
-                            <td style="font-weight:bold">
-                                Total Benefits (b)</td>
-                            <td style="font-weight:bold">
+                            <td style="font-weight: bold">
+                                Total Benefits (b)
+                            </td>
+                            <td style="font-weight: bold">
                                 <asp:Label ID="lblTotalBenefitBM" runat="server"></asp:Label>
                             </td>
-                            <td style="font-weight:bold">
+                            <td style="font-weight: bold">
                                 <asp:Label ID="lblTotalBenefitBY" runat="server"></asp:Label>
                             </td>
                             <td>
@@ -228,21 +333,25 @@
                         </tr>
                         <tr>
                             <td colspan="4">
-                                ------------------------------------------------------------------------</td>
+                                -------------------------------------------------------------------------------</td>
                         </tr>
                         <tr>
                             <td>
-                                Retirement Benefits</td>
+                                Retirement Benefits
+                            </td>
                             <td>
-                                &nbsp;</td>
+                                &nbsp;
+                            </td>
                             <td>
-                                &nbsp;</td>
+                                &nbsp;
+                            </td>
                             <td>
                             </td>
                         </tr>
                         <tr>
                             <td>
-                                Provident Fund</td>
+                                Provident Fund
+                            </td>
                             <td>
                                 <asp:Label ID="lblProvidentFundM" runat="server"></asp:Label>
                             </td>
@@ -254,7 +363,8 @@
                         </tr>
                         <tr>
                             <td>
-                                Gratuity</td>
+                                Gratuity
+                            </td>
                             <td>
                                 <asp:Label ID="lblGratuityM" runat="server"></asp:Label>
                             </td>
@@ -265,12 +375,13 @@
                             </td>
                         </tr>
                         <tr>
-                            <td style="font-weight:bold">
-                                Total Confirmed Benefits (c)</td>
-                            <td style="font-weight:bold">
+                            <td style="font-weight: bold">
+                                Total Confirmed Benefits (c)
+                            </td>
+                            <td style="font-weight: bold">
                                 <asp:Label ID="lblTCBM" runat="server"></asp:Label>
                             </td>
-                            <td style="font-weight:bold">
+                            <td style="font-weight: bold">
                                 <asp:Label ID="lblTCBY" runat="server"></asp:Label>
                             </td>
                             <td>
@@ -278,19 +389,20 @@
                         </tr>
                         <tr>
                             <td colspan="4">
-                                ------------------------------------------------------------------------</td>
+                                -------------------------------------------------------------------------------</td>
                         </tr>
                         <tr>
-                            <td style="font-weight:bold">
-                                CTC (a+b+c)</td>
-                            <td style="font-weight:bold">
+                            <td style="font-weight: bold">
+                                CTC (a+b+c)
+                            </td>
+                            <td style="font-weight: bold">
                                 <asp:Label ID="lblCTCM" runat="server"></asp:Label>
                             </td>
-                            <td style="font-weight:bold">
+                            <td style="font-weight: bold">
                                 <asp:Label ID="lblCTCY" runat="server"></asp:Label>
                             </td>
                             <td>
-                                </td>
+                            </td>
                         </tr>
                         <tr>
                             <td>
@@ -300,7 +412,8 @@
                             <td>
                             </td>
                             <td>
-                                &nbsp;</td>
+                                &nbsp;
+                            </td>
                         </tr>
                     </table>
                 </asp:Panel>
@@ -337,15 +450,16 @@
                             <td style="width: 14.285%">
                             </td>
                             <td style="width: 14.285%">
-                                Gross Salary</td>
+                                Gross Salary
+                            </td>
                             <td style="width: 14.285%">
-                                <asp:TextBox ID="txtGrossSalary" runat="server" Width="100px" 
-                                    AutoPostBack="True">0</asp:TextBox>
+                                <asp:TextBox ID="txtGrossSalary" runat="server" Width="100px" AutoPostBack="True">0</asp:TextBox>
                             </td>
                             <td style="width: 14.285%">
                             </td>
                             <td style="width: 14.285%">
-                                &nbsp;</td>
+                                &nbsp;
+                            </td>
                             <td style="width: 14.285%">
                                 <asp:Label ID="lblEmpType" runat="server" ForeColor="#006600" Font-Bold="True"></asp:Label>
                             </td>
@@ -429,7 +543,8 @@
                             <td>
                                 Conveyence
                                 <asp:Label ID="lblConvPer" runat="server" ForeColor="#006600"></asp:Label>
-                                &nbsp;</td>
+                                &nbsp;
+                            </td>
                             <td>
                                 <asp:TextBox ID="txtConveyance" runat="server" Width="100px">0</asp:TextBox>
                             </td>

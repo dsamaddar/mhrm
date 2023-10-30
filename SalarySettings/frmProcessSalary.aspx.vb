@@ -220,4 +220,5 @@ Partial Class SalarySettings_frmProcessSalary
             MessageBox(ex.Message)
         End Try
     End Sub
+
 End Class

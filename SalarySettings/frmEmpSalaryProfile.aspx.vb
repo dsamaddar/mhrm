@@ -92,8 +92,8 @@ Partial Class SalarySettings_frmEmpSalaryProfile
         lblCTCM.Text = "0"
         lblCTCY.Text = "0"
         lblFestivalBonusM.Text = "0"
-        lblFestivalBonusMPM.Text = "0"
-        lblFestivalBonusMPY.Text = "0"
+        lblConveyanceM.Text = "0"
+        lblConveyanceY.Text = "0"
         lblFestivalBonusY.Text = "0"
         lblHouseRentM.Text = "0"
         lblHouseRentY.Text = "0"
@@ -113,6 +113,17 @@ Partial Class SalarySettings_frmEmpSalaryProfile
         lblTotalGrossSalaryAY.Text = "0"
         lblTCBM.Text = "0"
         lblTCBY.Text = "0"
+
+        lblPFDedM.Text = "0"
+        lblPFDedY.Text = "0"
+        lblTDedDM.Text = "0"
+        lblTDedDY.Text = "0"
+        lblNetSalaryM.Text = "0"
+        lblNetSalaryY.Text = "0"
+        lblTaxDedM.Text = "0"
+        lblTaxDedY.Text = "0"
+        lblLoanDedM.Text = "0"
+        lblLoanDedY.Text = "0"
 
         lblEmpType.Text = ""
         lblBSPer.Text = ""
@@ -244,16 +255,35 @@ Partial Class SalarySettings_frmEmpSalaryProfile
         lblMedicalAllowanceM.Text = String.Format("{0:#,##0.00}", Convert.ToDouble(txtMedical.Text))
         lblMedicalAllowanceY.Text = String.Format("{0:#,##0.00}", Convert.ToDouble(txtMedical.Text) * 12)
 
-        lblFestivalBonusMPM.Text = String.Format("{0:#,##0.00}", (Convert.ToDouble(lblBasicSalaryM.Text) * 2) / 12)
-        lblFestivalBonusMPY.Text = String.Format("{0:#,##0.00}", Convert.ToDouble(lblBasicSalaryM.Text) * 2)
+        lblConveyanceM.Text = String.Format("{0:#,##0.00}", (Convert.ToDouble(txtConveyance.Text)))
+        lblConveyanceY.Text = String.Format("{0:#,##0.00}", Convert.ToDouble(lblBasicSalaryM.Text) * 12)
 
         lblLFAM.Text = String.Format("{0:#,##0.00}", Convert.ToDouble(txtLFA.Text))
         lblLFAY.Text = String.Format("{0:#,##0.00}", Convert.ToDouble(txtLFA.Text) * 12)
 
-        lblTotalGrossSalaryAM.Text = Convert.ToDouble(lblBasicSalaryM.Text) + Convert.ToDouble(lblHouseRentM.Text) + Convert.ToDouble(lblMedicalAllowanceM.Text) + Convert.ToDouble(lblFestivalBonusMPM.Text) + Convert.ToDouble(lblLFAM.Text)
-        lblTotalGrossSalaryAY.Text = Convert.ToDouble(lblBasicSalaryY.Text) + Convert.ToDouble(lblHouseRentY.Text) + Convert.ToDouble(lblMedicalAllowanceY.Text) + Convert.ToDouble(lblFestivalBonusMPY.Text) + Convert.ToDouble(lblLFAY.Text)
+        lblTotalGrossSalaryAM.Text = Convert.ToDouble(lblBasicSalaryM.Text) + Convert.ToDouble(lblHouseRentM.Text) + Convert.ToDouble(lblMedicalAllowanceM.Text) + Convert.ToDouble(lblConveyanceM.Text) + Convert.ToDouble(lblLFAM.Text)
+        lblTotalGrossSalaryAY.Text = Convert.ToDouble(lblBasicSalaryY.Text) + Convert.ToDouble(lblHouseRentY.Text) + Convert.ToDouble(lblMedicalAllowanceY.Text) + Convert.ToDouble(lblConveyanceY.Text) + Convert.ToDouble(lblLFAY.Text)
         lblTotalGrossSalaryAM.Text = String.Format("{0:#,##0.00}", Convert.ToDouble(lblTotalGrossSalaryAM.Text))
         lblTotalGrossSalaryAY.Text = String.Format("{0:#,##0.00}", Convert.ToDouble(lblTotalGrossSalaryAY.Text))
+
+        ' Deduction
+        lblPFDedM.Text = String.Format("{0:#,##0.00}", Convert.ToDouble(txtPFDeduction.Text))
+        lblPFDedY.Text = String.Format("{0:#,##0.00}", Convert.ToDouble(txtPFDeduction.Text) * 12)
+
+        lblTaxDedM.Text = String.Format("{0:#,##0.00}", Convert.ToDouble(txtTaxDeduction.Text))
+        lblTaxDedY.Text = String.Format("{0:#,##0.00}", Convert.ToDouble(txtTaxDeduction.Text) * 12)
+
+        lblLoanDedM.Text = String.Format("{0:#,##0.00}", Convert.ToDouble(txtLoanDeduction.Text))
+        lblLoanDedY.Text = String.Format("{0:#,##0.00}", Convert.ToDouble(txtLoanDeduction.Text) * 12)
+
+        lblTDedDM.Text = String.Format("{0:#,##0.00}", Convert.ToDouble(lblPFDedM.Text) + Convert.ToDouble(lblTaxDedM.Text) + Convert.ToDouble(lblLoanDedM.Text))
+        lblTDedDY.Text = String.Format("{0:#,##0.00}", Convert.ToDouble(lblPFDedY.Text) + Convert.ToDouble(lblTaxDedY.Text) + Convert.ToDouble(lblLoanDedY.Text))
+        ' Deduction
+
+        ' Net Salary
+        lblNetSalaryM.Text = String.Format("{0:#,##0.00}", Convert.ToDouble(lblTotalGrossSalaryAM.Text) - Convert.ToDouble(lblTDedDM.Text))
+        lblNetSalaryY.Text = String.Format("{0:#,##0.00}", Convert.ToDouble(lblTotalGrossSalaryAY.Text) - Convert.ToDouble(lblTDedDY.Text))
+        ' Net Salary
 
         lblMobileBIllM.Text = String.Format("{0:#,##0.00}", Convert.ToDouble(txtMobileAllowance.Text))
         lblMobileBIllY.Text = String.Format("{0:#,##0.00}", Convert.ToDouble(txtMobileAllowance.Text) * 12)
@@ -267,11 +297,11 @@ Partial Class SalarySettings_frmEmpSalaryProfile
         lblProvidentFundM.Text = String.Format("{0:#,##0.00}", Convert.ToDouble(txtPFDeduction.Text))
         lblProvidentFundY.Text = String.Format("{0:#,##0.00}", Convert.ToDouble(txtPFDeduction.Text) * 12)
 
-        lblProvidentFundM.Text = String.Format("{0:#,##0.00}", Convert.ToDouble(txtBasicSalary.Text) / 12)
-        lblProvidentFundY.Text = String.Format("{0:#,##0.00}", Convert.ToDouble(txtBasicSalary.Text))
+        lblGratuityM.Text = String.Format("{0:#,##0.00}", Convert.ToDouble(txtBasicSalary.Text) / 12)
+        lblGratuityY.Text = String.Format("{0:#,##0.00}", Convert.ToDouble(txtBasicSalary.Text))
 
-        lblTCBM.Text = String.Format("{0:#,##0.00}", Convert.ToDouble(lblProvidentFundM.Text) + Convert.ToDouble(lblProvidentFundM.Text))
-        lblTCBY.Text = String.Format("{0:#,##0.00}", Convert.ToDouble(lblProvidentFundY.Text) + Convert.ToDouble(lblProvidentFundY.Text))
+        lblTCBM.Text = String.Format("{0:#,##0.00}", Convert.ToDouble(lblProvidentFundM.Text) + Convert.ToDouble(lblGratuityM.Text))
+        lblTCBY.Text = String.Format("{0:#,##0.00}", Convert.ToDouble(lblProvidentFundY.Text) + Convert.ToDouble(lblGratuityY.Text))
 
         lblCTCM.Text = Convert.ToDouble(lblTotalGrossSalaryAM.Text) + Convert.ToDouble(lblTotalBenefitBM.Text) + Convert.ToDouble(lblTCBM.Text)
         lblCTCY.Text = Convert.ToDouble(lblTotalGrossSalaryAY.Text) + Convert.ToDouble(lblTotalBenefitBY.Text) + Convert.ToDouble(lblTCBY.Text)
@@ -297,17 +327,17 @@ Partial Class SalarySettings_frmEmpSalaryProfile
 
                 txtBasicSalary.Text = BasicSalary
                 txtFestivalBonus.Text = BasicSalary
-                txtHouseRent.Text = BasicSalary * 0.25
-                txtMedical.Text = BasicSalary * 0.05
-                txtConveyance.Text = BasicSalary * 0.075
+                txtHouseRent.Text = GrossSalary * 0.25
+                txtMedical.Text = GrossSalary * 0.05
+                txtConveyance.Text = GrossSalary * 0.075
                 txtLFA.Text = BasicSalary * 0.125
                 txtPFDeduction.Text = BasicSalary * 0.1
             Else
                 txtBasicSalary.Text = BasicSalary
                 txtFestivalBonus.Text = BasicSalary
-                txtHouseRent.Text = BasicSalary * 0.25
-                txtMedical.Text = BasicSalary * 0.05
-                txtConveyance.Text = BasicSalary * 0.2
+                txtHouseRent.Text = GrossSalary * 0.25
+                txtMedical.Text = GrossSalary * 0.05
+                txtConveyance.Text = GrossSalary * 0.2
                 txtLFA.Text = 0
                 txtPFDeduction.Text = 0
             End If
