@@ -330,7 +330,7 @@ Partial Class SalarySettings_frmEmpSalaryProfile
                 txtHouseRent.Text = GrossSalary * 0.25
                 txtMedical.Text = GrossSalary * 0.05
                 txtConveyance.Text = GrossSalary * 0.075
-                txtLFA.Text = BasicSalary * 0.125
+                txtLFA.Text = GrossSalary * 0.125
                 txtPFDeduction.Text = BasicSalary * 0.1
             Else
                 txtBasicSalary.Text = BasicSalary
