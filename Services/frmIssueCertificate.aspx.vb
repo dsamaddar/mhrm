@@ -37,6 +37,10 @@ Partial Class Services_frmIssueCertificate
 
             Dim parameters As CrystalDecisions.Web.Parameter = New CrystalDecisions.Web.Parameter()
             myReport.SetParameterValue("@EmployeeID", drpEmpList.SelectedValue)
+            If drpCertificateOptions.SelectedValue = "rptSalaryPayslip.rpt" Then
+                myReport.SetParameterValue("@SalaryMonth", Convert.ToInt32(drpSalaryMonth.SelectedValue))
+                myReport.SetParameterValue("@SalaryYear", Convert.ToInt32(drpSalaryYear.SelectedValue))
+            End If
             myReport.ExportToHttpResponse(ExportFormatType.RichText, Response, True, "ExportedReport")
         Catch ex As Exception
             MessageBox(ex.Message)
@@ -60,6 +64,8 @@ Partial Class Services_frmIssueCertificate
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         If Not IsPostBack Then
             GetEmpList()
+            drpSalaryMonth.SelectedValue = Now.Date.Month.ToString()
+            drpSalaryYear.SelectedValue = Now.Date.Year.ToString()
         End If
     End Sub
 

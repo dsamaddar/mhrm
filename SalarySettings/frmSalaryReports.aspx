@@ -178,8 +178,7 @@
                                 Salary Entry Point
                             </td>
                             <td>
-                                <asp:DropDownList ID="drpEntryPoint" runat="server" AutoPostBack="True" 
-                                    CssClass="InputTxtBox">
+                                <asp:DropDownList ID="drpEntryPoint" runat="server" AutoPostBack="True" CssClass="InputTxtBox">
                                 </asp:DropDownList>
                             </td>
                             <td>
@@ -192,8 +191,7 @@
                                 Salary Year/Month
                             </td>
                             <td>
-                                &nbsp;<asp:DropDownList ID="drpSalaryReportYear" runat="server" 
-                                    CssClass="InputTxtBox">
+                                &nbsp;<asp:DropDownList ID="drpSalaryReportYear" runat="server" CssClass="InputTxtBox">
                                     <asp:ListItem Text="2015" Value="2015"></asp:ListItem>
                                     <asp:ListItem Text="2016" Value="2016"></asp:ListItem>
                                     <asp:ListItem Text="2017" Value="2017"></asp:ListItem>
@@ -206,8 +204,7 @@
                                     <asp:ListItem Text="2024" Value="2024"></asp:ListItem>
                                     <asp:ListItem Text="2025" Value="2025"></asp:ListItem>
                                 </asp:DropDownList>
-                                &nbsp;<asp:DropDownList ID="drpSalaryReportMonth" runat="server" Width="100px" 
-                                    CssClass="InputTxtBox">
+                                &nbsp;<asp:DropDownList ID="drpSalaryReportMonth" runat="server" Width="100px" CssClass="InputTxtBox">
                                     <asp:ListItem Text="January" Value="1"></asp:ListItem>
                                     <asp:ListItem Text="February" Value="2"></asp:ListItem>
                                     <asp:ListItem Text="March" Value="3"></asp:ListItem>
@@ -223,7 +220,8 @@
                                 </asp:DropDownList>
                             </td>
                             <td>
-                                &nbsp;</td>
+                                &nbsp;
+                            </td>
                         </tr>
                         <tr align="left">
                             <td>
@@ -251,10 +249,14 @@
                                     <asp:ListItem Text="HTML 3.2" Value="6"></asp:ListItem>
                                 </asp:DropDownList>
                                 &nbsp;
-                                <asp:DropDownList ID="drpSalaryReportList" runat="server" CssClass="InputTxtBox" Width="200px">
-                                    <asp:ListItem Value="rptSalaryBankInstruction.rpt">Bank RTGS Instruction</asp:ListItem>
-                                    <asp:ListItem Value="rptConsolidatedSalary.rpt">Consolidated Salary</asp:ListItem>
-                                    <asp:ListItem Value="rptBranchwiseSalary.rpt">Branch wise Salary</asp:ListItem>
+                                <asp:DropDownList ID="drpSalaryReportList" runat="server" CssClass="InputTxtBox"
+                                    Width="200px">
+                                    <asp:ListItem Value="rptSalBankInstSCBMS.rpt">SCB RTGS MAIN SALARY</asp:ListItem>
+                                    <asp:ListItem Value="rptSalBankInstBRACMS.rpt">BRAC RTGS MAIN SALARY</asp:ListItem>
+                                    <asp:ListItem Value="rptSalBankInstBRACSP.rpt">BRAC RTGS SPECIAL ALLOWANCE</asp:ListItem>
+                                    <asp:ListItem Value="rptSalBankInstBRACMA.rpt">BRAC RTGS MOBILE ALLOWANCE</asp:ListItem>
+                                    <asp:ListItem Value="rptSalStatement.rpt">Salary Statement</asp:ListItem>
+                                    <asp:ListItem Value="rptSalBranchWise.rpt">Branch wise Salary</asp:ListItem>
                                     <asp:ListItem Value="rptDepartmentwiseSalary.rpt">Department wise Salary</asp:ListItem>
                                     <asp:ListItem Value="rptDepartmentwiseSalary.rpt">Designation wise Salary</asp:ListItem>
                                 </asp:DropDownList>
@@ -264,9 +266,11 @@
                         </tr>
                         <tr align="left">
                             <td>
-                                &nbsp;</td>
+                                &nbsp;
+                            </td>
                             <td>
-                                &nbsp;</td>
+                                &nbsp;
+                            </td>
                             <td>
                             </td>
                             <td>

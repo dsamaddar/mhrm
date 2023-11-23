@@ -241,7 +241,7 @@ Partial Class EmployeeProfile_frmEmployeeDetails
             Dim webClient As WebClient = New WebClient()
             Dim FileSavePath As String = ConfigurationManager.AppSettings("InputEHRMFiles") & FileName
             File.WriteAllBytes(FileSavePath, filebyte)
-            webClient.UploadFile("http://192.168.11.241/MHRM/Upload.aspx", FileSavePath)
+            webClient.UploadFile("http://ext.mfilbd.com/MHRM/Upload.aspx", FileSavePath)
             webClient.Dispose()
         Catch ex As Exception
             MessageBox(ex.Message)

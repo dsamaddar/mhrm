@@ -94,15 +94,13 @@ Partial Class SalarySettings_frmSalaryReports
 
     Protected Sub btnProcessSalaryReport_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles btnProcessSalaryReport.Click
         Try
-            If drpSalaryReportList.SelectedValue = "rptSalaryBankInstruction.rpt" Then
-                GetSalaryBankInstruction(drpSalaryReportList.SelectedValue)
-            End If
+            GenerateReport(drpSalaryReportList.SelectedValue)
         Catch ex As Exception
             MessageBox(ex.Message)
         End Try
     End Sub
 
-    Protected Sub GetSalaryBankInstruction(ByVal rptName As String)
+    Protected Sub GenerateReport(ByVal rptName As String)
         Dim myReport As New ReportDocument()
         Dim folder As String
         Dim f As String

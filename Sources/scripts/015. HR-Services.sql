@@ -244,7 +244,7 @@ begin
 	Declare @MailTo as nvarchar(200) Set @MailTo = ''
 	Declare @MailFrom as nvarchar(200) Set @MailFrom =''
 	Declare @MailCC as nvarchar(200) Set @MailCC = ''
-	Declare @GreenHRSLink  as nvarchar(500) Set @GreenHRSLink = 'http://192.168.11.241/mhrm/'
+	Declare @GreenHRSLink  as nvarchar(500) Set @GreenHRSLink = 'http://ext.mfilbd.com/mhrm/'
 
 	Declare @EmployeeName as nvarchar(200) Set @EmployeeName = ''
 	Declare @SupervisorID  as nvarchar(50) Set @SupervisorID=''
@@ -304,7 +304,7 @@ begin
 	Declare @MailTo as nvarchar(50) Set @MailTo = ''
 	Declare @MailFrom as nvarchar(50) Set @MailFrom =''
 	Declare @MailCC as nvarchar(50) Set @MailCC = ''
-	Declare @GreenHRSLink  as nvarchar(500) Set @GreenHRSLink = 'http://192.168.11.241/mhrm/'
+	Declare @GreenHRSLink  as nvarchar(500) Set @GreenHRSLink = 'http://ext.mfilbd.com/mhrm/'
 
 	Declare @EmployeeName as nvarchar(200) Set @EmployeeName = ''
 	Declare @SupervisorID  as nvarchar(50) Set @SupervisorID=''

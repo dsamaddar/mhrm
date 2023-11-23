@@ -289,7 +289,7 @@ begin
 	Declare @MailTo as nvarchar(50) Set @MailTo = ''
 	Declare @MailFrom as nvarchar(50) Set @MailFrom =''
 	Declare @MailCC as nvarchar(50) Set @MailCC = ''
-	Declare @EHRMLink  as nvarchar(500) Set @EHRMLink = 'http://192.168.11.241/mhrm/frmhrmlogin.aspx'
+	Declare @EHRMLink  as nvarchar(500) Set @EHRMLink = 'http://ext.mfilbd.com/mhrm/frmhrmlogin.aspx'
 
 	Declare @EmployeeName as nvarchar(200) Set @EmployeeName = ''
 	Declare @ApproverID as nvarchar(50) Set @ApproverID = ''
@@ -649,7 +649,7 @@ begin
 	Declare @MailTo as nvarchar(50) Set @MailTo = ''
 	Declare @MailFrom as nvarchar(50) Set @MailFrom =''
 	Declare @MailCC as nvarchar(50) Set @MailCC = ''
-	Declare @EHRMLink  as nvarchar(500) Set @EHRMLink = 'http://192.168.11.241/mhrm/frmhrmlogin.aspx'
+	Declare @EHRMLink  as nvarchar(500) Set @EHRMLink = 'http://ext.mfilbd.com/mhrm/frmhrmlogin.aspx'
 
 	Select @EmployeeID=EmployeeID,@ApproverID=ApproverID,@RecommenderID=RecommenderID,@IsApproved=IsApproved,
 	@IsRecommended=IsRecommended,@LeaveFrom=LeaveFrom,@LeaveTo=LeaveTo,@TotalWorkingDays=TotalWorkingDays,
