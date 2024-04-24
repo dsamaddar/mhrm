@@ -55,7 +55,8 @@ Partial Class MasterEHRM
                 mnu.Items(5).Enabled = IIf(InStr(MenuIDs, "OrgStructure~"), True, False)
                 mnu.Items(6).Enabled = IIf(InStr(MenuIDs, "QueryTool~"), True, False)
 
-                mnu.Items(7).NavigateUrl = "http://webapp/MHRM/EmployeeProfile/frmEmployeeDetails.aspx?EmployeeID=" & Session("UniqueUserID") & "&Type=Admin"
+                'mnu.Items(7).NavigateUrl = "http://webapp/MHRM/EmployeeProfile/frmEmployeeDetails.aspx?EmployeeID=" & Session("UniqueUserID") & "&Type=Admin"
+                mnu.Items(7).NavigateUrl = "~/EmployeeProfile/frmEmployeeDetails.aspx?EmployeeID=" & Session("UniqueUserID") & "&Type=Admin"
 
             Catch ex As Exception
                 MessageBox(ex.Message)

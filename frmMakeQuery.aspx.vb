@@ -198,45 +198,33 @@ Partial Class frmMakeQuery
 
     Protected Sub btnExport_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles btnExport.Click
         Try
-            Response.Clear()
-            Response.Buffer = True
-            Response.AddHeader("content-disposition", "attachment;filename=query_result.xls")
-            Response.Charset = ""
-            Response.ContentType = "application/vnd.ms-excel"
-            Using sw As New StringWriter()
-                Dim hw As New HtmlTextWriter(sw)
-
-                'To Export all pages
-                grdQueryResult.HeaderRow.BackColor = Color.White
-                For Each cell As TableCell In grdQueryResult.HeaderRow.Cells
-                    cell.BackColor = grdQueryResult.HeaderStyle.BackColor
-                Next
-                For Each row As GridViewRow In grdQueryResult.Rows
-                    row.BackColor = Color.White
-                    For Each cell As TableCell In row.Cells
-                        If row.RowIndex Mod 2 = 0 Then
-                            cell.BackColor = grdQueryResult.AlternatingRowStyle.BackColor
-                        Else
-                            cell.BackColor = grdQueryResult.RowStyle.BackColor
-                        End If
-                        cell.CssClass = "textmode"
-                    Next
-                Next
-
-                grdQueryResult.RenderControl(hw)
-                'style to format numbers to string
-                Dim style As String = "<style> .textmode { } </style>"
-                Response.Write(style)
-                Response.Output.Write(sw.ToString())
-                Response.Flush()
-                Response.[End]()
-            End Using
+            ExportToExcel(grdQueryResult)
         Catch ex As Exception
             MessageBox(ex.Message)
         End Try
 
     End Sub
 
+    Protected Sub ExportToExcel(ByVal gridview As System.Web.UI.WebControls.GridView)
+        Try
+            Dim sw As New StringWriter()
+            Dim hw As New System.Web.UI.HtmlTextWriter(sw)
+            Dim frm As HtmlForm = New HtmlForm()
+
+            Page.Response.AddHeader("content-disposition", "attachment;filename=QueryResult_" & Now.Ticks & ".xls")
+            Page.Response.ContentType = "application/vnd.ms-excel"
+            Page.Response.Charset = ""
+            Page.EnableViewState = False
+            frm.Attributes("runat") = "server"
+            Controls.Add(frm)
+            frm.Controls.Add(gridview)
+            frm.RenderControl(hw)
+            Response.Write(sw.ToString())
+            Response.End()
+        Catch ex As Exception
+            MessageBox(ex.Message)
+        End Try
+    End Sub
 
     Protected Sub Page_Load(ByVal sender As Object, ByVal e As System.EventArgs) Handles Me.Load
         If Not IsPostBack Then

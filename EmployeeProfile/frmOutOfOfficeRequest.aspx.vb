@@ -95,17 +95,59 @@ Partial Class EmployeeProfile_frmOutOfOfficeRequest
         End Try
     End Sub
 
+    'Protected Sub SendOutOfOfficeReqMail(ByVal MailProp As clsMailProperty)
+    '    Dim mail As New Net.Mail.MailMessage()
+    '    Try
+    '        mail.From = New MailAddress(MailProp.MailFrom)
+    '        mail.To.Add(MailProp.MailTo)
+    '        mail.CC.Add(MailProp.MailCC)
+    '        mail.Bcc.Add(MailProp.MailBCC)
+    '        mail.Subject = MailProp.MailSubject
+    '        mail.Body = MailProp.MailBody
+    '        mail.IsBodyHtml = True
+    '        Dim smtp As New SmtpClient("192.168.1.15", 25)
+    '        smtp.Send(mail)
+    '    Catch ex As Exception
+    '        MessageBox(ex.Message)
+    '    End Try
+    'End Sub
+
     Protected Sub SendOutOfOfficeReqMail(ByVal MailProp As clsMailProperty)
         Dim mail As New Net.Mail.MailMessage()
+        Dim TestArray() As String
+
         Try
             mail.From = New MailAddress(MailProp.MailFrom)
-            mail.To.Add(MailProp.MailTo)
-            mail.CC.Add(MailProp.MailCC)
-            mail.Bcc.Add(MailProp.MailBCC)
+
+            TestArray = Split(MailProp.MailTo, ";")
+            For i As Integer = 0 To TestArray.Length - 1
+                If TestArray(i) <> "" Then
+                    mail.To.Add(TestArray(i))
+                End If
+            Next
+            TestArray = Nothing
+
+            TestArray = Split(MailProp.MailCC, ";")
+            For i As Integer = 0 To TestArray.Length - 1
+                If TestArray(i) <> "" Then
+                    mail.CC.Add(TestArray(i))
+                End If
+            Next
+            TestArray = Nothing
+
+            TestArray = Split(MailProp.MailBCC, ";")
+            For i As Integer = 0 To TestArray.Length - 1
+                If TestArray(i) <> "" Then
+                    mail.Bcc.Add(TestArray(i))
+                End If
+            Next
+            TestArray = Nothing
+
             mail.Subject = MailProp.MailSubject
             mail.Body = MailProp.MailBody
             mail.IsBodyHtml = True
-            Dim smtp As New SmtpClient("192.168.1.14", 25)
+            mail.Priority = MailPriority.High
+            Dim smtp As New SmtpClient("192.168.1.15", 25)
             smtp.Send(mail)
         Catch ex As Exception
             MessageBox(ex.Message)

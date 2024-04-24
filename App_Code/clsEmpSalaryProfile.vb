@@ -36,7 +36,7 @@ Public Class clsEmpSalaryProfile
     End Property
 
     Dim _GrossSalary, _BasicSalary, _HouseRent, _Entertainment, _Medical, _Conveyance, _HouseMaintenance, _Consolidated, _
-    _LFA, _PerformanceBonus, _FestivalBonus, _BaishakhiAllowance, _ProfessionalAllowance, _SpecialAllowance, _MobileAllowance, _CarAllowance, _
+    _LFA, _PerformanceBonus, _FestivalBonus, _BaishakhiAllowance, _ProfessionalAllowance, _SpecialAllowance, _MobileAllowance, _CarAllowance, _Utility, _
     _Arrear, _Cash, _AccountsRecoverable, _PFDeduction, _PBTaxDeduction, _TaxDeduction, _ConveyanceDeduction, _LoanDeduction, _DonationDeduction As Double
 
     Public Property GrossSalary() As Double
@@ -180,6 +180,15 @@ Public Class clsEmpSalaryProfile
         End Get
         Set(ByVal value As Double)
             _CarAllowance = value
+        End Set
+    End Property
+
+    Public Property Utility() As Double
+        Get
+            Return _Utility
+        End Get
+        Set(ByVal value As Double)
+            _Utility = value
         End Set
     End Property
 
@@ -381,6 +390,7 @@ Public Class clsEmpSalaryProfile
                     EmpSalaryProfile.SpecialAllowance = dr.Item("SpecialAllowance")
                     EmpSalaryProfile.MobileAllowance = dr.Item("MobileAllowance")
                     EmpSalaryProfile.CarAllowance = dr.Item("CarAllowance")
+                    EmpSalaryProfile.Utility = dr.Item("Utility")
                     EmpSalaryProfile.Arrear = dr.Item("Arrear")
                     EmpSalaryProfile.Cash = dr.Item("Cash")
                     EmpSalaryProfile.AccountsRecoverable = dr.Item("AccountsRecoverable")
@@ -468,6 +478,7 @@ Public Class clsEmpSalaryProfile
             cmd.Parameters.AddWithValue("@SpecialAllowance", EmpSalaryProfile.SpecialAllowance)
             cmd.Parameters.AddWithValue("@MobileAllowance", EmpSalaryProfile.MobileAllowance)
             cmd.Parameters.AddWithValue("@CarAllowance", EmpSalaryProfile.CarAllowance)
+            cmd.Parameters.AddWithValue("@Utility", EmpSalaryProfile.Utility)
             cmd.Parameters.AddWithValue("@Arrear", EmpSalaryProfile.Arrear)
             cmd.Parameters.AddWithValue("@Cash", EmpSalaryProfile.Cash)
             cmd.Parameters.AddWithValue("@AccountsRecoverable", EmpSalaryProfile.AccountsRecoverable)
@@ -521,6 +532,7 @@ Public Class clsEmpSalaryProfile
             cmd.Parameters.AddWithValue("@SpecialAllowance", EmpSalaryProfile.SpecialAllowance)
             cmd.Parameters.AddWithValue("@MobileAllowance", EmpSalaryProfile.MobileAllowance)
             cmd.Parameters.AddWithValue("@CarAllowance", EmpSalaryProfile.CarAllowance)
+            cmd.Parameters.AddWithValue("@Utility", EmpSalaryProfile.Utility)
             cmd.Parameters.AddWithValue("@Arrear", EmpSalaryProfile.Arrear)
             cmd.Parameters.AddWithValue("@Cash", EmpSalaryProfile.Cash)
             cmd.Parameters.AddWithValue("@AccountsRecoverable", EmpSalaryProfile.AccountsRecoverable)

@@ -28,6 +28,7 @@ Partial Class SalarySettings_frmEmpSalaryProfile
             EmpSalaryProfile.SpecialAllowance = txtSpecialAllowance.Text
             EmpSalaryProfile.MobileAllowance = txtMobileAllowance.Text
             EmpSalaryProfile.CarAllowance = txtCarAllowance.Text
+            EmpSalaryProfile.Utility = txtUtility.Text
             EmpSalaryProfile.Arrear = txtArrear.Text
             EmpSalaryProfile.Cash = txtCash.Text
             EmpSalaryProfile.AccountsRecoverable = txtAccountsRecoverable.Text
@@ -77,6 +78,7 @@ Partial Class SalarySettings_frmEmpSalaryProfile
         txtSpecialAllowance.Text = "0"
         txtMobileAllowance.Text = "0"
         txtCarAllowance.Text = "0"
+        txtUtility.Text = "0"
         txtArrear.Text = "0"
         txtCash.Text = "0"
         txtAccountsRecoverable.Text = "0"
@@ -203,6 +205,7 @@ Partial Class SalarySettings_frmEmpSalaryProfile
             txtSpecialAllowance.Text = EmpSalaryProfile.SpecialAllowance
             txtMobileAllowance.Text = EmpSalaryProfile.MobileAllowance
             txtCarAllowance.Text = EmpSalaryProfile.CarAllowance
+            txtUtility.Text = EmpSalaryProfile.Utility
             txtArrear.Text = EmpSalaryProfile.Arrear
             txtCash.Text = EmpSalaryProfile.Cash
             txtAccountsRecoverable.Text = EmpSalaryProfile.AccountsRecoverable

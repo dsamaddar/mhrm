@@ -94,7 +94,12 @@ Partial Class SalarySettings_frmSalaryReports
 
     Protected Sub btnProcessSalaryReport_Click(ByVal sender As Object, ByVal e As System.EventArgs) Handles btnProcessSalaryReport.Click
         Try
-            GenerateReport(drpSalaryReportList.SelectedValue)
+            If drpSalaryReportList.SelectedValue = "rptSalEmpTypeWise.rpt" Or drpSalaryReportList.SelectedValue = "rptSalDistributionBankWise.rpt" Or drpSalaryReportList.SelectedValue = "rptSalDepartmentWise.rpt" Or drpSalaryReportList.SelectedValue = "rptSalDesignationWise.rpt" Then
+                GenerateReport(drpSalaryReportList.SelectedValue, drpSalaryMonth.SelectedValue, drpSalaryYear.SelectedValue)
+            Else
+                GenerateReport(drpSalaryReportList.SelectedValue)
+            End If
+
         Catch ex As Exception
             MessageBox(ex.Message)
         End Try
@@ -131,7 +136,46 @@ Partial Class SalarySettings_frmSalaryReports
 
             Dim parameters As CrystalDecisions.Web.Parameter = New CrystalDecisions.Web.Parameter()
             myReport.SetParameterValue("@EntryPoint", drpEntryPoint.SelectedValue)
-            myReport.ExportToHttpResponse(drpSalaryReportExportFormat.SelectedValue, Response, True, "SalaryBankInstruction_" & Now.Ticks)
+            myReport.ExportToHttpResponse(drpSalaryReportExportFormat.SelectedValue, Response, True, Replace(rptName, ".rpt", "") & "_" & Now.Ticks)
+
+        Catch ex As Exception
+            MessageBox(ex.Message)
+        End Try
+    End Sub
+
+    Protected Sub GenerateReport(ByVal rptName As String, ByVal SalaryMonth As Integer, ByVal SalaryYear As Integer)
+        Dim myReport As New ReportDocument()
+        Dim folder As String
+        Dim f As String
+        Dim repName As String
+        Dim serverName As [String], uid As [String], pwd As [String], dbName As [String]
+
+        Dim conStr As String = ConfigurationManager.ConnectionStrings("ReportCon").ConnectionString
+        Dim retArr As [String](), usrArr As [String](), pwdArr As [String](), serverArr As [String](), dbArr As [String]()
+
+        Try
+            f = "~/Reports/"
+            folder = Server.MapPath(f)
+            repName = folder & rptName
+            myReport.Load(repName)
+
+            retArr = conStr.Split(";")
+            serverArr = retArr(0).Split("=")
+            dbArr = retArr(1).Split("=")
+            usrArr = retArr(2).Split("=")
+            pwdArr = retArr(3).Split("=")
+
+            serverName = serverArr(1)
+            uid = usrArr(1)
+            pwd = pwdArr(1)
+            dbName = dbArr(1)
+
+            myReport.SetDatabaseLogon(uid, pwd, serverName, dbName)
+
+            Dim parameters As CrystalDecisions.Web.Parameter = New CrystalDecisions.Web.Parameter()
+            myReport.SetParameterValue("@SalaryMonth", SalaryMonth)
+            myReport.SetParameterValue("@SalaryYear", SalaryYear)
+            myReport.ExportToHttpResponse(drpSalaryReportExportFormat.SelectedValue, Response, True, Replace(rptName, ".rpt", "") & "_" & Now.Ticks)
 
         Catch ex As Exception
             MessageBox(ex.Message)

@@ -255,10 +255,13 @@
                                     <asp:ListItem Value="rptSalBankInstBRACMS.rpt">BRAC RTGS MAIN SALARY</asp:ListItem>
                                     <asp:ListItem Value="rptSalBankInstBRACSP.rpt">BRAC RTGS SPECIAL ALLOWANCE</asp:ListItem>
                                     <asp:ListItem Value="rptSalBankInstBRACMA.rpt">BRAC RTGS MOBILE ALLOWANCE</asp:ListItem>
-                                    <asp:ListItem Value="rptSalStatement.rpt">Salary Statement</asp:ListItem>
+                                    <asp:ListItem Value="rptSalStatement.rpt">Salary Statement - General</asp:ListItem>
+                                    <asp:ListItem Value="rptSalStatementMD.rpt">Salary Statement - MD</asp:ListItem>
                                     <asp:ListItem Value="rptSalBranchWise.rpt">Branch wise Salary</asp:ListItem>
-                                    <asp:ListItem Value="rptDepartmentwiseSalary.rpt">Department wise Salary</asp:ListItem>
-                                    <asp:ListItem Value="rptDepartmentwiseSalary.rpt">Designation wise Salary</asp:ListItem>
+                                    <asp:ListItem Value="rptSalDepartmentWise.rpt">Department wise Salary</asp:ListItem>
+                                    <asp:ListItem Value="rptSalDesignationWise.rpt">Designation wise Salary</asp:ListItem>
+                                    <asp:ListItem Value="rptSalEmpTypeWise.rpt">Emp Type wise Salary</asp:ListItem>
+                                    <asp:ListItem Value="rptSalDistributionBankWise.rpt">Sal. Distribution Bank Wise</asp:ListItem>
                                 </asp:DropDownList>
                             </td>
                             <td>
