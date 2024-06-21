@@ -76,6 +76,7 @@
                             <li><a href="#">Web design</a></li>
                         </ul>--%>
                     </li>
+                    <li><a href="../EmployeeProfile/frmAssetList.aspx">Assets</a></li>
                     <li><a href="../EmployeeProfile/frmCallLog.aspx">Call-Log</a></li>
                     <li><a href="../EmployeeProfile/frmPrintLog.aspx">Print-Log</a></li>
                     <li><a href="../EmployeeProfile/frmHRServiceRequest.aspx">HR-Service</a></li>

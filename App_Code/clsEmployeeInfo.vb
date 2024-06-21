@@ -3551,6 +3551,29 @@ Public Class clsEmployeeInfo
         End Try
     End Function
 
+    Public Function fnGetAssetList(ByVal UserID As String) As DataSet
+
+        Dim sp As String = "spGetAssetList"
+        Dim da As SqlDataAdapter = New SqlDataAdapter()
+        Dim ds As DataSet = New DataSet()
+        Try
+            con.Open()
+            Using cmd As SqlCommand = New SqlCommand(sp, con)
+                cmd.CommandType = CommandType.StoredProcedure
+                cmd.Parameters.AddWithValue("@UserID", UserID)
+                da.SelectCommand = cmd
+                da.Fill(ds)
+                con.Close()
+                Return ds
+            End Using
+        Catch ex As Exception
+            If con.State = ConnectionState.Open Then
+                con.Close()
+            End If
+            Return Nothing
+        End Try
+    End Function
+
     Public Function fnGetAllCallLog() As DataSet
         Dim sp As String = "spGetAllCallLog"
         Dim da As SqlDataAdapter = New SqlDataAdapter()
