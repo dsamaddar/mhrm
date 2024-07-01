@@ -24,6 +24,7 @@
                                 <asp:BoundField DataField="MODEL" HeaderText="MODEL" />
                                 <asp:BoundField DataField="ASSET_TAG" HeaderText="ASSET_TAG" />
                                 <asp:BoundField DataField="HOST_NAME" HeaderText="HOST_NAME" />
+                                <asp:BoundField DataField="ASSIGNED_IP" HeaderText="ASSIGNED_IP" />
                                 <asp:BoundField DataField="DESCRIPTION" HeaderText="DESCRIPTION" />
                                 <asp:BoundField DataField="STATUS" HeaderText="STATUS" />
                             </Columns>
