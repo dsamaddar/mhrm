@@ -17,7 +17,7 @@
                             </td>
                         </tr>
                         <tr>
-                            <td style="width:20px">
+                            <td style="width: 20px">
                             </td>
                             <td>
                             </td>
@@ -26,7 +26,8 @@
                             <td>
                             </td>
                             <td>
-                                &nbsp;</td>
+                                &nbsp;
+                            </td>
                             <td>
                             </td>
                         </tr>
@@ -41,7 +42,8 @@
                                 </asp:DropDownList>
                             </td>
                             <td>
-                                Salary Month/Year</td>
+                                Salary Month/Year
+                            </td>
                             <td>
                                 <asp:DropDownList ID="drpSalaryYear" runat="server" CssClass="InputTxtBox">
                                     <asp:ListItem Text="2015" Value="2015"></asp:ListItem>
@@ -56,7 +58,7 @@
                                     <asp:ListItem Text="2024" Value="2024"></asp:ListItem>
                                     <asp:ListItem Text="2025" Value="2025"></asp:ListItem>
                                 </asp:DropDownList>
-                                &nbsp;<asp:DropDownList ID="drpSalaryMonth" runat="server" CssClass="InputTxtBox" 
+                                &nbsp;<asp:DropDownList ID="drpSalaryMonth" runat="server" CssClass="InputTxtBox"
                                     Width="100px">
                                     <asp:ListItem Text="January" Value="1"></asp:ListItem>
                                     <asp:ListItem Text="February" Value="2"></asp:ListItem>
@@ -73,22 +75,23 @@
                                 </asp:DropDownList>
                             </td>
                             <td>
-                                &nbsp;</td>
+                                &nbsp;
+                            </td>
                         </tr>
                         <tr>
                             <td>
                             </td>
                             <td>
-                                Select Certificate Option</td>
+                                Select Certificate Option
+                            </td>
                             <td>
                                 <asp:DropDownList ID="drpCertificateOptions" runat="server" Width="200px">
-                                    <asp:ListItem Text="NOC for VISA" Value="rptNOCforVISA.rpt"></asp:ListItem>
-                                    <asp:ListItem Text="Experience Certificate" 
-                                        Value="rptExperienceCertificate.rpt"></asp:ListItem>
+                                    <asp:ListItem Text="Experience Certificate" Value="rptExperienceCertificate.rpt"></asp:ListItem>
                                     <asp:ListItem Text="Release Order" Value="rptReleaseOrder.rpt"></asp:ListItem>
                                     <asp:ListItem Text="Salary Certificate" Value="rptSalaryCertificate.rpt"></asp:ListItem>
                                     <asp:ListItem Text="Salary Payslip" Value="rptSalaryPayslip.rpt"></asp:ListItem>
                                     <asp:ListItem Text="NOC for Passport" Value="rptNOCforPASSPORT.rpt"></asp:ListItem>
+                                    <asp:ListItem Text="NOC for Passport Apply" Value="rptNOCForPassportApply.rpt"></asp:ListItem>
                                     <asp:ListItem Text="Job Continuation" Value="rptJobContinuingCertificate.rpt"></asp:ListItem>
                                 </asp:DropDownList>
                             </td>
@@ -97,22 +100,28 @@
                             <td>
                             </td>
                             <td>
-                                &nbsp;</td>
+                                &nbsp;
+                            </td>
                         </tr>
                         <tr>
                             <td>
-                                &nbsp;</td>
+                                &nbsp;
+                            </td>
                             <td>
-                                &nbsp;</td>
+                                &nbsp;
+                            </td>
                             <td>
                                 <asp:Button ID="btnProcessReport" runat="server" Text="Process Report" />
                             </td>
                             <td>
-                                &nbsp;</td>
+                                &nbsp;
+                            </td>
                             <td>
-                                &nbsp;</td>
+                                &nbsp;
+                            </td>
                             <td>
-                                &nbsp;</td>
+                                &nbsp;
+                            </td>
                         </tr>
                     </table>
                 </asp:Panel>
